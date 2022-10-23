@@ -8,6 +8,7 @@ public class GameplayManager : MonoBehaviour
     public TextMeshProUGUI HistoryText;
     public Transform AnswersParent;
     public GameObject AnswersButtonPrefab;
+    public AudioSource ButtonSound;
 
     private StoryNode currentNode;
 
@@ -44,6 +45,7 @@ public class GameplayManager : MonoBehaviour
     private void FillListener(Button button, int index)
     {
         button.onClick.AddListener(() => { AnswerSelected(index); });
+        button.onClick.AddListener(() => { ButtonSound.Play(); });
     }
 
     private void AnswerSelected(int index)
